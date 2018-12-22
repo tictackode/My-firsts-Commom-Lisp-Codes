@@ -1,0 +1,3 @@
+ (defun nota()(print"Digite a primeira nota: ")(setf nota1 (read))
+   (print"Digite a segunda nota: ")(setf nota2 (read))
+   (list '(a media é )(/ (+ nota1 nota2) 2.0)))

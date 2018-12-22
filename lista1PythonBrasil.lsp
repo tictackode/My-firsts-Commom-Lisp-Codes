@@ -1,0 +1,159 @@
+; Lista 1 do site Python brasil - Regson
+; 1-Faça um Programa que mostre a mensagem "Alo mundo" na tela.
+
+(defun ola-mundo()(format t"Olá Mundo!"))
+
+; 2-Faça um Programa que peça um número e então mostre a mensagem O número informado foi [número].
+
+(defun numero()(format t "Digite um numero")(setq n (read))(format t"O numero digitado foi ~D~%"n))
+
+;3-Faça um Programa que peça dois números e imprima a soma.
+
+ (defun soma()(format t"Digite o primeiro numero: ")(setq num1 (read))
+              (format t"Digite o segundo numero: ")(setq num2 (read))
+              (format t"A soma é ~D~%" (+ num1 num2)))
+; 4-Faça um Programa que peça as 4 notas bimestrais e mostre a média.
+
+(defun media()(format t"Digite a primeira nota: ")(setq n1 (read))
+              (format t"Digite a segunda nota: ")(setq n2 (read))
+              (format t"Digite a terceira nota ")(setq n3 (read))
+              (format t"Digite a quarta nota: ")(setq n4 (read))
+              (format t"A media e ~F~%" ( / (+ n1 n2 n3 n4) 4.0)))
+
+; 5-Faça um Programa que converta metros para centímetros.
+
+(defun m-to-cm()(format t"Digite uma medida em metros:")(setq x (read))
+                (format t"~F~% centimetros" ( * x 100)))
+
+;6-Faça um Programa que peça o raio de um círculo, calcule e mostre sua área. 
+
+(defun circulo()(format t"Insira o raio do circulo: ")(setq r (read))
+                (format t"A area  é ~F~%" (* 3.14 ( * r r))))
+
+;7-Faça um Programa que calcule a área de um quadrado, em seguida mostre o dobro desta área para o usuário.
+
+(defun quadrado()(format t"Digite o lado do quadrado")(setq lado (read))
+                 (format t"O dobro da area é ~F~%" (* 2 (* lado lado)))) 
+
+;8-Faça um Programa que pergunte quanto você ganha por hora e o número de horas trabalhadas no mês. 
+;Calcule e mostre o total do seu salário no referido mês.
+
+(defun salario()(format t"Quanto ganha por hora?")(setq por-hora (read))
+                (format t"Quantas horas foram trabalhadas no mes?")(setq horas-mes (read))
+                (format t"Salario do mes ~F~%" (* por-hora horas-mes)))
+
+;9-Faça um Programa que peça a temperatura em graus Farenheit, transforme e mostre a temperatura em graus Celsius.
+;C = (5 * (F-32) / 9).
+
+(defun far-to-c()(format t" Digite a temperatura em farenheit")(setq f (read))
+                 (format t"Em Celsius: ~F~%" (/ (* 5 (- f 32)) 9)))
+
+; 10-Faça um Programa que peça a temperatura em graus Celsius, transforme e mostre em graus Farenheit.  conferir a equacao!!
+
+(defun c-to-far()(format t" Digite a temperatura em Celsius:")(setq c (read))
+                 (format t"Em Fahrenheit: ~F~%" (+ (/ (* 9 c) 5) 32)))
+
+; 11-Faça um Programa que peça 2 números inteiros e um número real. Calcule e mostre:
+;o produto do dobro do primeiro com metade do segundo .
+;a soma do triplo do primeiro com o terceiro.
+;o terceiro elevado ao cubo.O terceiro elevado ao cubo
+
+(defun ex11()(format t"Digite o primeiro numero inteiro: ")(setq int1 (read))
+             (format t"Digite o segundo numero inteiro: ")(setq int2 (read))
+             (format t"Digite o numero real: ")(setq real (read))
+             (format t"Produto do dobro do primeiro com a metade do segundo ~F~%" (* (* 2 int1) (/ int2 2))) 
+             (format t"Soma do triplo do primeiro com o terceiro ~F~%" ( + (* 3 int1) real))
+             (format t "O terceiro elevado ao cubo ~F~%" (* real real real)))
+
+;12-Tendo como dados de entrada a altura de uma pessoa, construa um algoritmo que calcule seu peso ideal,
+; usando a seguinte fórmula: (72.7*altura) - 58
+
+ (defun peso-ideal()(format t"Digite a altura: ")(setq altura (read))
+                    (format t"Peso ideal ~F~%" (- (* 72.7 altura) 58)))
+
+;13-Tendo como dados de entrada a altura e o sexo de uma pessoa, construa um algoritmo que calcule seu peso ideal,
+; utilizando as seguintes fórmulas:
+;Para homens: (72.7*h) - 58
+;Para mulheres: (62.1*h) - 44.7 (h = altura)
+;Peça o peso da pessoa e informe se ela está dentro, acima ou abaixo do peso.
+
+(defun peso-ideal2()(format t"Digite a altura: ")(setq altura (read))
+       (format t"Digite m para masculino e f para feminino")(setq sexo (read))(format t"Digite o peso")(setq peso (read))
+       (cond ((eql sexo  'm)(cond  ((> peso  (- (* 72.7 altura) 58))(format t"Acima do peso!"))
+                                   ((< peso  (- (* 72.2 altura) 58))(format t"Dentro do peso!"))))             
+             ((eql sexo  'f)(cond  ((> peso  (- (* 62.1 altura) 44.7))(format t"Acima do peso!"))
+                                   ((< peso  (- (* 62.1 altura) 44.7))(format t"Dentro do peso!"))))))
+
+;14-João Papo-de-Pescador, homem de bem, comprou um microcomputador para controlar o rendimento diário de seu trabalho.
+; Toda vez que ele traz um peso de peixes maior que o estabelecido pelo regulamento de pesca do estado de São Paulo
+; (50 quilos) deve pagar uma multa de R$ 4,00 por quilo excedente. João precisa que você faça um programa que leia
+; a variável peso (peso de peixes) e verifique se há excesso. Se houver, gravar na variável excesso e na variável multa
+; o valor da multa que João deverá pagar. Caso contrário mostrar tais variáveis com o conteúdo ZERO.
+
+ 
+(defun peixes()(format t"Digite o peso dos peixes: ")(setq peso (read))
+               (cond ((< peso 50)(format t" Não há multa!"))
+                     ((> peso 50)(format t"Valor da multa: ~F~%" (* (- peso 50) 4.00)))))
+
+; 15-Faça um Programa que pergunte quanto você ganha por hora e o número de horas trabalhadas no mês. Calcule e mostre o total do seu salário no referido mês, sabendo-se que são descontados 11% para o Imposto de Renda, 8% para o INSS e 5% para o sindicato, faça um programa que nos dê:
+;salário bruto.
+;quanto pagou ao INSS.
+;quanto pagou ao sindicato.
+;o salário líquido.
+;calcule os descontos e o salário líquido, conforme a tabela abaixo:
+;+ Salário Bruto : R$
+;- IR (11%) : R$
+;- INSS (8%) : R$
+;- Sindicato ( 5%) : R$
+;= Salário Liquido : R$
+;Obs.: Salário Bruto - Descontos = Salário Líquido.
+
+(defun salario()(format t"Quanto ganha por hora?")(setq por-hora (read))
+              (format t"Digite o numero de horas trabalhadas: ")(setq num-horas (read))
+              (setq bruto (* por-hora num-horas))(setq IR ( * bruto 0.11))
+              (setq INSS (* bruto 0.08))(setq sindicato (* bruto 0.05))
+              (format t"+ Salário Bruto : R$ ~F~%" bruto)
+              (format t"- IR (11%) : R$ ~F~%" IR)
+              (format t"- INSS (8%) : R$ ~F~%" INSS)
+              (format t"- Sindicato (5%) : R$ ~F~%" sindicato)
+              (format t"=Salário Liquido : R$ ~F~%" (-  bruto (+ IR INSS sindicato))))
+
+; 16-Faça um programa para uma loja de tintas. O programa deverá pedir o tamanho em metros quadrados
+; da área a ser pintada. Considere que a cobertura da tinta é de 1 litro para cada 3 metros quadrados
+; e que a tinta é vendida em latas de 18 litros, que custam R$ 80,00. Informe ao usuário a quantidades
+; de latas de tinta a serem compradas e o preço total.
+
+ (defun loja-tintas()(format t"Informe o tamanho da da area a ser pintada:" )
+                                (setq area (read))(setq num-latas (/ (/ area 3.0) 18.0))
+                                (format t"Numero de latas de tintas ~F~%" num-latas)
+                                (format t"Preço total: ~F~%" (* num-latas 80.00)))
+
+; 17-Faça um Programa para uma loja de tintas. O programa deverá pedir o tamanho em metros quadrados 
+;da área a ser pintada. Considere que a cobertura da tinta é de 1 litro para cada 6 metros quadrados
+; e que a tinta é vendida em latas de 18 litros, que custam R$ 80,00 ou em galões de 3,6 litros, que custam R$ 25,00.
+;Informe ao usuário as quantidades de tinta a serem compradas e os respectivos preços em 3 situações:
+;comprar apenas latas de 18 litros;
+;comprar apenas galões de 3,6 litros;
+;misturar latas e galões, de forma que o preço seja o menor. Acrescente 10% de folga e sempre arredonde
+;os valores para cima, isto é, considere latas cheias.
+
+; funcoes auxiliares
+(defun calcula-latas(area)(setq num-latas (/ (/ area 6.0) 18.0))
+                          (format t"Situação 1-Numero de latas de tintas ~F~%" num-latas))
+(defun calcula-latasr(area) (/ (/ area 6.0) 18.0))    ; recebe uma area e devolve o numero de latas
+(defun resto(x)(-  x  (floor x)))                     ; retorna a parte apos a virgula de um numero real) 
+(defun litros-restantes-lata(x)(*  (resto x) 18)) 
+(defun calcula-galoes(x)(format t"Situacao 2- Numero de galoes ~F~%" (/  (/ area 6.0) 3.6)))
+(defun situacao3(area)(format t"Situacao3- Serao usados ~F~% latas " (floor (calcula-latasr area)))
+                      (format t" e ~F~% galoes "(floor (/  (litros-restantes-lata (calcula-latasr area))  3.6))))
+; exercicio completo
+(defun loja-tintas2()(format t"Informe o tamanho da da area a ser pintada:" )
+                     (setq area (read))(calcula-latas area)(calcula-galoes area)
+                     (situacao3 area))
+
+;18-Faça um programa que peça o tamanho de um arquivo para download (em MB) e a velocidade de um link de
+;Internet (em Mbps), calcule e informe o tempo aproximado de download do arquivo usando este link (em minutos).
+
+(defun download-speed()(format t"Digite o tamanho do arquivo em MB : ")(setq tam (read))
+                       (format t"Digite a velocidade da conexão em Mbps: ")(setq vel (read))
+                       (format t" O tempo estimado é de ~F~% minutos" (/ ( /  tam (/ vel 10)) 60 )))

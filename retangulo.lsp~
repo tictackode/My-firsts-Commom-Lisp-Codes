@@ -1,0 +1,3 @@
+(defun retangulo()(print"Digite o lado a do retangulo: ")(setf ladoA (read))
+  (print"Digite o segundo lado do retangulo: ")(setf ladoB (read))(print"O perimetro é: ")(+(* ladoA 2)(* ladoB 2))
+  (print"A area é: ")(* ladoA ladoB))

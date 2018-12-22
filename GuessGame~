@@ -1,0 +1,6 @@
+
+
+(defparameter max 99)
+(defparameter min 1)
+
+(defun sorteia() (+ (random max) 1)

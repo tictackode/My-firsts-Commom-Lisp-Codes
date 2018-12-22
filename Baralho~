@@ -1,0 +1,10 @@
+(defun one-of(set)
+  (list (random-elt set)))
+
+(defun random-elt(choices)
+  (elt choices (random (length choices))))
+
+(defvar valor '(dois tres quatro cinco seis sete oito nome dez valete dama rei as))
+(defvar naipe '(paus copas espadas ouro))
+
+(defun card()(list(one-of valor)(one-of naipe)))

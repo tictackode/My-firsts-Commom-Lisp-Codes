@@ -1,0 +1,217 @@
+; Lista 2 Python Brasil - Regson
+
+;1-Faça um Programa que peça dois números e imprima o maior deles.
+
+(defun maior()(format t"Digite um numero: ")(setq n1 (read))
+              (format t"Digite outro numero: ")(setq n2 (read))
+              (cond  ((> n1 n2)(format t"O maior numero é ~F~%" n1))
+                     ((< n1 n2)(format t" O maior numero é ~F~%" n2))))
+
+;2-Faça um Programa que peça um valor e mostre na tela se o valor é positivo ou negativo.
+
+ (defun pos-neg()(format t"Digite um numero: ")(setq num (read))
+                 (cond ((minusp num)(format t"O número é negativo!"))
+                       ((plusp num)(format t"O número é positivo!"))
+                       ((zerop num)(format t"o número é zero!"))))
+
+;3-Faça um Programa que verifique se uma letra digitada é "F" ou "M". Conforme a letra escrever:
+; F - Feminino, M - Masculino, Sexo Inválido.
+
+(defun sexo()(format t" Digite m para masculino e f para feminino: ")(setq sexo (read))
+                   (cond ((eql sexo 'm)(format t"Masculino"))
+                         ((eql sexo 'f)(format t"Feminino"))
+                         (t (format t"Sexo Inválido!"))))
+
+;4-Faça um Programa que verifique se uma letra digitada é vogal ou consoante.
+
+(defun vogal-consoante()(format t"Digite uma letra: ")(setq letra (read))
+                        (cond ((eql letra 'a)(format t"Vogal!"))
+                              ((eql letra 'e)(format t"Vogal!"))
+                              ((eql letra 'i)(format t"Vogal!"))
+                              ((eql letra 'o)(format t"Vogal!"))
+                              ((eql letra 'u)(format t"Vogal!"))
+                              ( t (format t"Consoante!"))))
+
+;5-Faça um programa para a leitura de duas notas parciais de um aluno. 
+;O programa deve calcular a média alcançada por aluno e apresentar:
+;A mensagem "Aprovado", se a média alcançada for maior ou igual a sete;
+;A mensagem "Reprovado", se a média for menor do que sete;
+;A mensagem "Aprovado com Distinção", se a média for igual a dez.
+
+(defun notas()(format t"Digite a primeita nota: ")(setq nota1 (read))
+              (format t"Digite a segunda nota: ")(setq nota2 (read))(setq final (/ (+  nota1 nota2) 2))
+              (cond ((AND (>= final 7) (< final 10))  (format t"Aprovado!"))
+                    ((< final 7)(format t"Reprovado!"))
+                    ((> final 10)(format t"Notas inválidas: Valores acima de 10"))
+                    ((equalp final 10)(format t"Aprovado com Distinção!"))))
+
+;6-Faça um Programa que leia três números e mostre o maior deles.
+
+(defun maior()(format t"Digite um numero:")(setq n1 (read))
+              (format t"Digite outro numero:")(setq n2 (read))
+              (format t"Digite o terceiro numero:")(setq n3 (read))
+              (cond ((AND (> n1 n2) (> n1 n3))(format t"~F~% é o maior" n1))
+                    ((AND (> n2 n1) (> n2 n3))(format t"~F~% é o maior" n2))
+                    ( t (format t"~F~% é o maior" n3))))
+
+;7-Faça um Programa que leia três números e mostre o maior e o menor deles.
+
+; funcoes auxiliares
+(defun maior(n1 n2 n3)(cond ((AND (> n1 n2) (> n1 n3))(format t"~F é o maior ~% " n1))
+                                             ((AND (> n2 n1) (> n2 n3))(format t"~F é o maior~%" n2))
+                                             ( t (format t"~F é o maior~%" n3))))
+
+(defun menor(n1 n2 n3)(cond ((AND (< n1 n2) (< n1 n3))(format t"~F é o menor~%" n1))
+                                            ((AND (< n2 n1) (< n2 n3))(format t"~F é o menor~%" n2))
+                                            ( t (format t"~F é o menor~%" n3))))
+; função completa
+(defun maior-menor()(format t"Digite um numero:")(setq n1 (read))
+                    (format t"Digite outro numero:")(setq n2 (read))
+                    (format t"Digite o terceiro numero:")(setq n3 (read))
+                    (maior n1 n2 n3)(menor n1 n2 n3))
+
+;8-Faça um programa que pergunte o preço de três produtos e informe qual produto você deve comprar,
+; sabendo que a decisão é sempre pelo mais barato.
+
+;funções auxiliares
+(defun leitura()(format t"Digite o nome do primeiro produto:")(setq n1 (read))
+                (format t"Digite o preço:")(setq p1 (read))(setq produto1 (list n1 p1))
+                (format t"Digite o nome do segundo produto:")(setq n2 (read))
+                (format t"Digite o preço:")(setq p2 (read))(setq produto2 (list n2 p2))
+                (format t"Digite o nome do primeiro produto:")(setq n3 (read))
+                (format t"Digite o preço:")(setq p3 (read))(setq produto3 (list n3 p3)))
+
+(defun menor(n1 n2 n3)(cond ((AND (< n1 n2) (< n1 n3)) n1)
+                                            ((AND (< n2 n1) (< n2 n3)) n2)
+                                            ( t  n3)))
+
+(defun produto-barato(x)(cond ((equalp x (first(last produto1)))(format t"Voce deve comprar ~S~%"  (first produto1)))
+                              ((equalp x (first(last produto2)))(format t"Voce deve comprar ~S~%"  (first produto2)))
+                              ((equalp x (first(last produto3)))(format t"Voce deve comprar ~S~%"  (first produto3)))))
+;exercicio completo
+(defun ex08()(leitura)(produto-barato (menor (first(last produto1)) (first(last produto2)) (first(last produto3)))))
+
+;9-Faça um Programa que leia três números e mostre-os em ordem decrescente.
+;funções auxiliares
+(defun menor(n1 n2 n3)(cond ((AND (< n1 n2) (< n1 n3)) n1)
+                            ((AND (< n2 n1) (< n2 n3)) n2)
+                            ( t  n3)))
+
+(defun maior(n1 n2 n3)(cond ((AND (> n1 n2) (> n1 n3)) n1)
+                            ((AND (> n2 n1) (> n2 n3)) n2)
+                            ( t  n3)))
+
+;exercicio completo
+(defun decrescente()(format t"Digite um numero:")(setq n1 (read))
+                    (format t"Digite outro numero:")(setq n2 (read))
+                    (format t"Digite o terceiro numero:")(setq n3 (read))
+                    (setq num-maior (maior n1 n2 n3))(setq num-menor (menor n1 n2 n3))
+                    (cond ((AND  (NOT (equalp num-maior n1)) (NOT (equalp num-menor n1)))(setq meio n1))
+                          ((AND  (NOT (equalp num-maior n2)) (NOT (equalp num-menor n2)))(setq meio n2))
+                          ( t (setq meio n3)))
+                    (list num-maior meio num-menor))
+
+;10-Faça um Programa que pergunte em que turno você estuda. Peça para digitar M-matutino ou V-Vespertino
+; ou N- Noturno. Imprima a mensagem "Bom Dia!", "Boa Tarde!" ou "Boa Noite!" ou "Valor Inválido!", conforme o caso.
+
+(defun saudacao()(format t"Digite o periodo em que vc estuda: M-matutino, V-vespertino, N-noturno")
+                 (setq periodo (read))
+                 (cond ((eql periodo 'm)(format t"Bom dia!"))
+                       ((eql periodo 'v)(format t"Boa tarde!"))
+                       ((eql periodo 'n)(format t"Boa noite!"))
+                       ( t (format t"Valor invalido!"))))
+
+;11-As Organizações Tabajara resolveram dar um aumento de salário aos seus colaboradores e 
+;lhe contraram para desenvolver o programa que calculará os reajustes.
+;Faça um programa que recebe o salário de um colaborador e o reajuste segundo o seguinte 
+;critério, baseado no salário atual:
+;salários até R$ 280,00 (incluindo) : aumento de 20%
+;salários entre R$ 280,00 e R$ 700,00 : aumento de 15%
+;salários entre R$ 700,00 e R$ 1500,00 : aumento de 10%
+;salários de R$ 1500,00 em diante : aumento de 5% Após o aumento ser realizado, informe na tela:
+;o salário antes do reajuste;
+;o percentual de aumento aplicado;
+;o valor do aumento;
+;o novo salário, após o aumento.
+
+(defun salario()(format t"Digite o salario do colaborador: ")(setq salario (read))
+       (cond (( AND (< salario 280) (equalp salario 280))(setq percentual '20%)(setq aumento (* salario 0.2))
+                                                          (setq novo-sal (+ salario aumento)))
+             (( AND (> salario 280) (< salario 700))      (setq percentual '15%)(setq aumento (* salario 0.15))
+                                                          (setq novo-sal (+ salario aumento)))
+             (( AND (> salario 700) (< salario 1500))     (setq percentual '10%)(setq aumento (* salario 0.1))
+                                                          (setq novo-sal (+ salario aumento)))
+             ((OR (> salario 1500) (equalp salario 1500))(setq percentual '5%)(setq aumento (* salario 0.05))
+                                                         (setq novo-sal (+ salario aumento))))
+              (format t"salário antes do reajuste ~F~%" salario) 
+              (format t"O percentual de aumento aplicado ~S~%" percentual) 
+              (format t"O valor do aumento ~F~%" aumento)
+              (format t"Novo salario ~F~%" novo-sal))
+
+;12-
+
+;13-Faça um Programa que leia um número e exiba o dia correspondente da semana. 
+;(1-Domingo, 2- Segunda, etc.), se digitar outro valor deve aparecer valor inválido.
+
+(defun semana()(format t"Digite um numero: ")(setq num (read))
+               (setq semana '(Domingo Segunda Terça Quarta Quinta Sexta Sabado))
+               (cond ((equalp num 1)(first semana))
+                     ((equalp num 2)(second semana))
+                     ((equalp num 3)(third semana))
+                     ((equalp num 4)(fourth semana))
+                     ((equalp num 5)(fifth semana))
+                     ((equalp num 6)(sixth semana))
+                     ((equalp num 7)(first(last semana)))
+                     (t (format t"Valor inválido!"))))
+
+;14-Faça um programa que lê as duas notas parciais obtidas por um aluno numa disciplina
+; ao longo de um semestre, e calcule a sua média. A atribuição de conceitos obedece à tabela abaixo:
+;  Média de Aproveitamento  Conceito
+;  Entre 9.0 e 10.0        A
+;  Entre 7.5 e 9.0         B
+;  Entre 6.0 e 7.5         C
+;  Entre 4.0 e 6.0         D
+;  Entre 4.0 e zero        E
+
+(defun media()(format t"Digite a primeira nota: ")(setq nota1 (read))
+              (format t"Digite a segunda nota: ")(setq nota2 (read))
+              (setq media (/ (+ nota1 nota2) 2.0))
+              (cond ((AND (> media 8.99) (< media 10.01))(format t"A Aprovado!"))
+                    ((AND (> media 7.49) (< media 9.0))(format t"B Aprovado!"))
+                    ((AND (> media 5.99) (< media 7.5))(format t"C Aprovado!"))
+                    ((AND (> media 3.99) (< media 6.0))(format t"D Reprovado!"))
+                    ((AND (> media 0) (< media 4.0))(format t"E Reprovado!"))
+                    (t (format t"Nota inválida!"))))
+
+
+;15-Faça um Programa que peça os 3 lados de um triângulo. O programa deverá informar se
+; os valores podem ser um triângulo. Indique, caso os lados formem um triângulo,
+; se o mesmo é: equilátero, isósceles ou escaleno.
+;Três lados formam um triângulo quando a soma de quaisquer dois lados for maior que o terceiro;
+;Triângulo Equilátero: três lados iguais;
+;Triângulo Isósceles: quaisquer dois lados iguais;
+;Triângulo Escaleno: três lados diferentes;
+
+;!!!nao esta pronto
+(defun leitura()(format t"Digite o primeiro lado: ")(setq a (read))
+                (format t"Digite o segundo lado: ")(setq b (read)) 
+                (format t"Digite o primeiro lado: ")(setq c (read)))
+
+; esse tem erro
+(defun teste-triangulo()(leitura)(cond ((AND (> (+ a b) c) (> ( + b c) a) (> ( + a c) b))
+                                 (format t"Forma triangulo!"))
+                                 (t (format t"Não forma triangulo!"))))
+
+;16-Faça um programa que calcule as raízes de uma equação do segundo grau, na forma ax2 + bx + c.
+; O programa deverá pedir os valores de a, b e c e fazer as consistências, informando ao usuário 
+;nas seguintes situações:
+;Se o usuário informar o valor de A igual a zero, a equação não é do segundo grau e o programa não
+; deve fazer pedir os demais valores, sendo encerrado;
+;Se o delta calculado for negativo, a equação não possui raizes reais. Informe ao usuário e encerre o programa;
+;Se o delta calculado for igual a zero a equação possui apenas uma raiz real; informe-a ao usuário;
+;Se o delta for positivo, a equação possui duas raiz reais; informe-as ao usuário;
+
+(defun equacao()(format t"Equacao do 2o grau: Digite o valor de a: ")(setq a (read))
+                (format t"Digite o valor de b: ")(setq b (read))
+                (format t"Digite o valor de c: ")(setq c (read))
+                (cond ((equalp a 0)(format t"Não é equacao do segundo grau!"))))

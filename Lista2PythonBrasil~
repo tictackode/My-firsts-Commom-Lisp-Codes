@@ -1,0 +1,13 @@
+; Lista 2 Python Brasil - Regson
+
+;1-Faça um Programa que peça dois números e imprima o maior deles.
+
+(defun maior()(format t"Digite um numero: ")(setq n1 (read))
+              (format t"Digite outro numero: ")(setq n2 (read))
+              (cond  ((> n1 n2)(format t"O maior numero é ~F~%" n1))
+                     ((< n1 n2)(format t" O maior numero é ~F~%" n2))))
+
+;2-Faça um Programa que peça um valor e mostre na tela se o valor é positivo ou negativo.
+
+(defun pos-neg()(format t"Digite um numero: ")(setq num (read))
+              (cond ((minus num)(format t"O número é negativo!"))(format t"O numero é positivo"))) 

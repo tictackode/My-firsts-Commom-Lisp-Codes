@@ -1,0 +1,11 @@
+(defun media (x y)(/ (+ x y) 2.0))
+
+(defun resultado(x y)
+  (if (>= (media x y) 5)(format t"aprovado")
+     (format t"reprovado")))
+
+(defun  notas   
+	(progn (x y)
+	(format t"digite a primeira nota") (setq x (read))
+	(format t"digite a segunda nota") (setq y (read)))
+	(resultado x y))

@@ -1,0 +1,8 @@
+(defun head(x)(car x))
+
+(defun tail(x)(last x))
+
+(defun enigma (x)
+     ( cond ((endp x) t)
+            (t (and (first x) 
+     (enigma (rest x)) ))))

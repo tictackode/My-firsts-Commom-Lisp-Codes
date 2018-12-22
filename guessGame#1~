@@ -1,0 +1,5 @@
+(defparameter num (random 100))
+
+(defun try(x)(if(< x num)
+                 ("numero muito grande")
+                 ("numero muito pequeno"))if(= x num)("Certa Resposta!"))

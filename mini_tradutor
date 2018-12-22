@@ -1,0 +1,11 @@
+(format t"Mini tradutor japones-portugues")
+; começaremos com 1 tradução para cada palavra
+(set 'kotoba '(palavra))
+(set 'palavra '(kotoba))
+
+(set 'hohoemi '(sorriso))
+(set 'sorriso '(hohoemi))
+(set 'aai '(amor))
+(set 'amor '(aai))
+
+

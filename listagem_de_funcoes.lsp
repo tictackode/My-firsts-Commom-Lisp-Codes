@@ -22,10 +22,10 @@
 
 ; definicoes de listas para auxiliar o estudo
 
-(setf frutas '(pera uva maÁ„ banana goiaba melancia laranja lim„o maracuj·))
+(setf frutas '(pera uva ma√ß√£ banana goiaba melancia laranja lim√£o maracuj√°))
 
 (setf verbos-eu '(gosto quero odeio amo))
 
-(setf tempo '(de_manh„ de_tarde de_noite de_madrugada))
+(setf tempo '(de_manh√£ de_tarde de_noite de_madrugada))
 
 (defun fala()(list(one-of verbos-eu)(one-of frutas)(one-of tempo)))

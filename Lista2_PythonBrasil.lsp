@@ -44,3 +44,14 @@
                     ((< final 7)(format t"Reprovado!"))
                     ((> final 10)(format t"Notas inválidas: Valores acima de 10"))
                     ((equalp final 10)(format t"Aprovado com Distinção!"))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; firt use o let
+
+(let ((x 2))(print x)) 
+(defun sum()(print "Type the first number:")
+                             (let ((num1 (read)))
+                             (print "Type the second number:")
+                             (let ((num2 (read)))
+                             
+                             (format t "The sum is ~F~%" (+ num1 num2)))))
